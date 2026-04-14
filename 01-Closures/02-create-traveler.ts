@@ -1,12 +1,16 @@
 const createTraveler = (name: string) => {
     let destination: string = "Amsterdam";
 
-    return () => {
-        console.log(`${name} is flying to ${destination}`),
-        
+    return {
+        fly: () => console.log(`${name} is flying to ${destination}`),
+        changeDestination: (newDest: string) => {
+            destination = newDest
+        }
+
     }
 }
 
-const fly = createTraveler('lulu')
-fly()
-
+const Traveler = createTraveler('lulu')
+Traveler.fly()
+Traveler.changeDestination('beijing')
+Traveler.fly()
